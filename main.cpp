@@ -5,6 +5,7 @@ using namespace std;
 
 int findLongestEvenPath(BinaryTreeNode *tree);
 double evaluateTree(BinaryTreeNode* root);
+int findLongestEvenPathBONUS(BinaryTreeNode *tree);
 
 int main() {
     cout << "### Ex.1 - Recursion ###" << endl;
@@ -18,6 +19,7 @@ int main() {
     root->getRight()->getRight()->setRight(new BinaryTreeNode("22"));
 
     cout << "Longest even path: " << findLongestEvenPath(root) << endl;
+    cout << "Longest even path (Bonus): "<<findLongestEvenPathBONUS(root)<<endl;
 
     BinaryTreeNode* root2 = new BinaryTreeNode("+");
     root2->setLeft(new BinaryTreeNode("*"));
