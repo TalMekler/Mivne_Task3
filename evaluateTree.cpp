@@ -8,14 +8,19 @@ double evaluateTree(BinaryTreeNode *root) {
     if (root == nullptr)
         return 0;
 
-    if (strcmp(root->getValue(), "+") == 0)
-        return evaluateTree(root->getLeft()) + evaluateTree(root->getRight());
-    if (strcmp(root->getValue(), "-") == 0)
-        return evaluateTree(root->getLeft()) - evaluateTree(root->getRight());
-    if (strcmp(root->getValue(), "*") == 0)
-        return evaluateTree(root->getLeft()) * evaluateTree(root->getRight());
-    if (strcmp(root->getValue(), "/") == 0)
-        return evaluateTree(root->getLeft()) / evaluateTree(root->getRight());
+    char *sign = root->getValue();
+    switch (*sign) {
+        case '+':
+            return evaluateTree(root->getLeft()) + evaluateTree(root->getRight());
+        case '-':
+            return evaluateTree(root->getLeft()) - evaluateTree(root->getRight());
+        case '*':
+            return evaluateTree(root->getLeft()) * evaluateTree(root->getRight());
+        case '/':
+            return evaluateTree(root->getLeft()) / evaluateTree(root->getRight());
+        default:
+            return atoi(root->getValue());
+    }
 
-    return atoi(root->getValue());
+
 }
