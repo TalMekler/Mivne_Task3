@@ -2,37 +2,38 @@
 // Created by Tal Mekler on 23/05/2022.
 //
 #include "BinaryTreeNode.h"
+#include <queue>
 
 int findLongestEvenPathBONUS(BinaryTreeNode *tree) {
-    BinaryTreeNode *bnArr1[30], *bnArr2[30];
-    int max = -1, cnt = -1, size1 = 0, size2 = 0;
-    bnArr1[size1] = tree;
-    size1++;
+    queue<BinaryTreeNode*> q, q2;
+    int max = -1, cnt = -1;
+    q.push(tree);
     cnt++;
     while (cnt >= 0) {
-        if (bnArr1[size1 - 1]->getLeft() != nullptr && (atoi(bnArr1[size1 - 1]->getLeft()->getValue()) % 2 == 0 &&
-                                                        atoi(bnArr1[size1 - 1]->getLeft()->getValue()) != 0)) {
-            bnArr1[size1] = bnArr1[size1 - 1]->getLeft();
-            bnArr1[size1]->setValue("0");
-            size1++;
+        if (q.back()->getLeft() != nullptr &&
+            (atoi(q.back()->getLeft()->getValue()) % 2 == 0 &&
+            atoi(q.back()->getLeft()->getValue()) != 0)) {
+            q.push(q.back()->getLeft());
+            q.back()->setValue("0");
             cnt++;
-        } else if (bnArr1[size1 - 1]->getRight() != nullptr &&
-                   (atoi(bnArr1[size1 - 1]->getRight()->getValue()) % 2 == 0 &&
-                    atoi(bnArr1[size1 - 1]->getRight()->getValue()) != 0)) {
-            bnArr1[size1] = bnArr1[size1 - 1]->getRight();
-            bnArr1[size1]->setValue("0");
-            size1++;
+        }else if(q.back()->getRight() != nullptr &&
+                 (atoi(q.back()->getRight()->getValue()) % 2 == 0 &&
+                  atoi(q.back()->getRight()->getValue()) != 0)) {
+            q.push(q.back()->getRight());
+            q.back()->setValue("0");
             cnt++;
-        } else {
-            for (int i = 0; i < size1 - 1; ++i) {
-                bnArr2[size2] = bnArr1[i];
-                size2++;
+        }else {
+            int s = q.size();
+            for (int i = 0; i < s-1; ++i) {
+                q2.push(q.front());
+                q.pop();
             }
-            for (int i = 0; i < size2; ++i) {
-                bnArr1[i] = bnArr2[i];
+            q.pop();
+            s = q2.size();
+            for (int i = 0; i < s; ++i) {
+                q.push(q2.front());
+                q2.pop();
             }
-            size1 = size2;
-            size2 = 0;
             cnt--;
         }
         max = (max >= cnt) ? max : cnt;
