@@ -32,9 +32,6 @@ int findLongestEvenPathBONUS(BinaryTreeNode *tree) {
             size1 = size2;
             size2 = 0;
             cnt--;
-//            bnArr1[size1-1] = nullptr;
-//            size1--;
-//            cnt--;
         }
     }
 
