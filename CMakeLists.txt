@@ -3,4 +3,4 @@ project(Task3)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(Task3 main.cpp BinaryTreeNode.cpp BinaryTreeNode.h findLongestEvenPath.cpp evaluateTree.cpp)
+add_executable(Task3 main.cpp BinaryTreeNode.cpp BinaryTreeNode.h findLongestEvenPath.cpp evaluateTree.cpp findLongestEvenPathBONUS.cpp)
