@@ -14,13 +14,11 @@ int findLongestEvenPathBONUS(BinaryTreeNode *tree) {
             bnArr1[size1]->setValue("0");
             size1++;
             cnt++;
-            max = (max >= cnt) ? max : cnt;
         } else if (bnArr1[size1-1]->getRight() != nullptr&&(atoi(bnArr1[size1-1]->getRight()->getValue()) % 2 == 0 && atoi(bnArr1[size1-1]->getRight()->getValue()) != 0)) {
             bnArr1[size1] = bnArr1[size1-1]->getRight();
             bnArr1[size1]->setValue("0");
             size1++;
             cnt++;
-            max = (max >= cnt) ? max : cnt;
         }else {
             for (int i = 0; i < size1 - 1; ++i) {
                 bnArr2[size2] = bnArr1[i];
@@ -33,6 +31,7 @@ int findLongestEvenPathBONUS(BinaryTreeNode *tree) {
             size2 = 0;
             cnt--;
         }
+        max = (max >= cnt) ? max : cnt;
     }
 
     return max;
