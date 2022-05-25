@@ -21,7 +21,7 @@ int findLongestEvenPath(BinaryTreeNode* tree) {
     else
         valLeft = findLongestEvenPath(tree->getLeft());
 
-    int res = (valRight > valLeft) ? valRight : valLeft;
-    return 1 + res;
+    int res = (valRight > valLeft) ? valRight : valLeft; // Check the longest path between the left child and right child
+    return 1 + res; // 1 + longest path (left or right)
 
 }
