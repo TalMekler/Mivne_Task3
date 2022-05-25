@@ -8,8 +8,7 @@ double evaluateTree(BinaryTreeNode *root) {
     if (root == nullptr)
         return 0;
 
-    char *sign = root->getValue();
-    switch (*sign) {
+    switch (*(root->getValue())) { // Check if root value is a sign (+, -, *, /)
         case '+':
             return evaluateTree(root->getLeft()) + evaluateTree(root->getRight());
         case '-':
