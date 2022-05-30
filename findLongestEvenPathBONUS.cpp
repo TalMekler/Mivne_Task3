@@ -1,6 +1,8 @@
-//
-// Created by Tal Mekler on 23/05/2022.
-//
+/*
+ * Tal Mekler, 318811122
+ * Moshe Azachi, 209087337
+ */
+
 #include "BinaryTreeNode.h"
 #include <queue>
 
@@ -10,16 +12,16 @@ int findLongestEvenPathBONUS(BinaryTreeNode *tree) {
     q.push(tree); // Push root
     while (q.size() > 0) { // While root in q
         if (q.back()->getLeft() != nullptr &&
-            (atoi(q.back()->getLeft()->getValue()) % 2 == 0 &&
-            atoi(q.back()->getLeft()->getValue()) != 0)) { // If the left child exist and his value is even != 0
+            strcmp(q.back()->getLeft()->getValue(), "x") != 0 &&
+            (atoi(q.back()->getLeft()->getValue()) % 2 == 0)) { // If the left child exist and his value is even != 0
             q.push(q.back()->getLeft());
-            q.back()->setValue("0");
+            q.back()->setValue("x");
 
         }else if(q.back()->getRight() != nullptr &&
-                 (atoi(q.back()->getRight()->getValue()) % 2 == 0 &&
-                  atoi(q.back()->getRight()->getValue()) != 0)) { // If the right child exist and his value is even != 0
+                strcmp(q.back()->getRight()->getValue(), "x") != 0 &&
+                 (atoi(q.back()->getRight()->getValue()) % 2 == 0)) { // If the right child exist and his value is even != 0
             q.push(q.back()->getRight());
-            q.back()->setValue("0");
+            q.back()->setValue("x");
         }else { // If the left and right children haven't even value (or = nullptr)
             int s = q.size();
 

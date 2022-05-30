@@ -1,6 +1,7 @@
-//
-// Created by Tal Mekler on 15/05/2022.
-//
+/*
+ * Tal Mekler, 318811122
+ * Moshe Azachi, 209087337
+ */
 
 #include "BinaryTreeNode.h"
 

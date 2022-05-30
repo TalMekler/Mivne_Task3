@@ -1,3 +1,8 @@
+/*
+ * Tal Mekler, 318811122
+ * Moshe Azachi, 209087337
+ */
+
 #include <iostream>
 #include "BinaryTreeNode.h"
 
@@ -8,7 +13,7 @@ double evaluateTree(BinaryTreeNode* root);
 int findLongestEvenPathBONUS(BinaryTreeNode *tree);
 
 int main() {
-    cout << "### Ex.1 - Recursion ###" << endl;
+    cout << "### Ex.1 ###" << endl;
     BinaryTreeNode *root = new BinaryTreeNode("10");
     root->setLeft(new BinaryTreeNode("6"));
     root->getLeft()->setLeft(new BinaryTreeNode("4"));
@@ -21,6 +26,7 @@ int main() {
     cout << "Longest even path: " << findLongestEvenPath(root) << endl;
     cout << "Longest even path (Bonus): "<<findLongestEvenPathBONUS(root)<<endl;
 
+    cout << "\n### Ex.2 ###" << endl;
     BinaryTreeNode* root2 = new BinaryTreeNode("+");
     root2->setLeft(new BinaryTreeNode("*"));
     root2->setRight(new BinaryTreeNode("/"));
@@ -32,7 +38,7 @@ int main() {
     root2->getLeft()->getLeft()->setRight(new BinaryTreeNode("5"));
     cout << "evaluateTree Res: " << evaluateTree(root2) << endl;
 
-    cout << "done!" << endl;
+    cout << "\ndone!" << endl;
 
     return 0;
 }
