@@ -38,9 +38,8 @@ int findLongestEvenPathBONUS(BinaryTreeNode *tree) {
             }
         }
 
-        int size = q.size() - 1; // Path length
-        if (max < size) // Change the max path length
-            max = size;
+        if (max < (int)(q.size() - 1)) // Change the max path length
+            max = (int)(q.size() - 1);
     }
 
     return max;
